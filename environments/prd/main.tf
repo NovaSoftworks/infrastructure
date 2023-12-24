@@ -17,3 +17,11 @@ terraform {
 provider "azurerm" {
   features {}
 }
+
+module "container_registry" {
+  source = "../../modules/container_registry"
+
+  environment  = var.environment
+  region       = var.region
+  region_short = var.region_short
+}
