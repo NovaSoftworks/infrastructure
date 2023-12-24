@@ -9,7 +9,7 @@ terraform {
   cloud {
     organization = "NovaSoftworks"
     workspaces {
-      name = "global-infrastructure-prd"
+      name = "global-infrastructure-dev"
     }
   }
 }
