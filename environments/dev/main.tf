@@ -25,3 +25,13 @@ module "container_registry" {
   region       = var.region
   region_short = var.region_short
 }
+
+module "app_service_plan" {
+  source = "../../modules/app_service_plan"
+
+  environment  = var.environment
+  region       = var.region
+  region_short = var.region_short
+
+  app_service_plan_vm_size = var.app_service_plan_vm_size
+}
