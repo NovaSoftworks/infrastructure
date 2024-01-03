@@ -9,7 +9,7 @@ output "app_service_plan" {
   description = "The App Service Plan."
 }
 
-output "dns" {
-  value       = module.dns.dns
+output "dns_zone_novasoftworks_com" {
+  value       = module.dns.dns_zone_novasoftworks_com
   description = "The DNS zone for the domain novasoftworks.com."
 }
