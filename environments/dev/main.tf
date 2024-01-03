@@ -35,3 +35,11 @@ module "app_service_plan" {
 
   app_service_plan_vm_size = var.app_service_plan_vm_size
 }
+
+module "dns" {
+  source = "../../modules/dns"
+
+  environment  = var.environment
+  region       = var.region
+  region_short = var.region_short
+}
