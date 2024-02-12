@@ -1,9 +1,9 @@
 locals {
-  component = "novacp-${var.environment}-${var.region_short}"
+  component = "novacp-${var.environment}-${var.region_short}-dns"
 }
 
 resource "azurerm_resource_group" "dns_rg" {
-  name     = "${local.component}-dns-rg"
+  name     = "${local.component}-rg"
   location = var.region
 }
 

@@ -13,22 +13,6 @@ variable "region_short" {
   description = "This is the cloud hosting region where the infrastructure will be deployed, but shortened."
 }
 
-variable "jumpbox_vm_size" {
-  type        = string
-  description = "Default VM size used for the Jumpbox."
-}
-
-variable "jumpbox_username" {
-  type        = string
-  description = "Jumpbox administrator username"
-}
-
-variable "jumpbox_password" {
-  type        = string
-  description = "Jumpbox administrator password"
-  sensitive   = true
-}
-
 variable "k8s_sku_tier" {
   type        = string
   description = "Default SKU tier for Kubernetes cluster management."
@@ -52,4 +36,14 @@ variable "k8s_spot_vm_size" {
 variable "k8s_spot_node_count" {
   type        = string
   description = "How many nodes to use for Kubernetes' spot pool."
+}
+
+variable "k8s_subnet_id" {
+  type        = string
+  description = "The ID of the subnet to which the Kubernetes cluster will be connected."
+}
+
+variable "acr_id" {
+  type        = string
+  description = "The ID of the Azure Container Registry where Kubernetes will be able to pull images from."
 }
