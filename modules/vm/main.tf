@@ -5,6 +5,10 @@ locals {
 resource "azurerm_resource_group" "vm_rg" {
   name     = "${local.component}-rg"
   location = var.region
+
+  tags = {
+    environment = var.environment
+  }
 }
 
 # Public IP
@@ -13,6 +17,10 @@ resource "azurerm_public_ip" "vm_publicip" {
   resource_group_name = azurerm_resource_group.vm_rg.name
   location            = azurerm_resource_group.vm_rg.location
   allocation_method   = "Dynamic"
+
+  tags = {
+    environment = var.environment
+  }
 }
 
 # Network interface
@@ -26,6 +34,10 @@ resource "azurerm_network_interface" "vm_nic" {
     subnet_id                     = var.vm_subnet_id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.vm_publicip.id
+  }
+
+  tags = {
+    environment = var.environment
   }
 }
 
@@ -55,5 +67,9 @@ resource "azurerm_linux_virtual_machine" "vm" {
     offer     = "0001-com-ubuntu-server-jammy"
     sku       = "22_04-lts-gen2"
     version   = "latest"
+  }
+
+  tags = {
+    environment = var.environment
   }
 }

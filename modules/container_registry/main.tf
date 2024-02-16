@@ -5,6 +5,10 @@ locals {
 resource "azurerm_resource_group" "acr_rg" {
   name     = "${local.component}-rg"
   location = var.region
+
+  tags = {
+    environment = var.environment
+  }
 }
 
 resource "azurerm_container_registry" "acr" {
@@ -14,4 +18,8 @@ resource "azurerm_container_registry" "acr" {
   sku                 = "Basic"
 
   admin_enabled = true
+
+  tags = {
+    environment = var.environment
+  }
 }

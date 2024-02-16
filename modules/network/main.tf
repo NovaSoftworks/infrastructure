@@ -5,6 +5,10 @@ locals {
 resource "azurerm_resource_group" "vnet_rg" {
   name     = "${local.component}-rg"
   location = var.region
+
+  tags = {
+    environment = var.environment
+  }
 }
 
 resource "azurerm_virtual_network" "vnet" {
@@ -12,4 +16,8 @@ resource "azurerm_virtual_network" "vnet" {
   location            = azurerm_resource_group.vnet_rg.location
   resource_group_name = azurerm_resource_group.vnet_rg.name
   address_space       = ["10.0.0.0/8"]
+
+  tags = {
+    environment = var.environment
+  }
 }
