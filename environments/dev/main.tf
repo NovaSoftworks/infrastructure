@@ -44,7 +44,7 @@ module "network" {
 
 module "k8s" {
   source     = "../../modules/k8s"
-  depends_on = [module.network]
+  depends_on = [module.network, module.container_registry]
 
   environment  = var.environment
   region       = var.region
@@ -58,7 +58,7 @@ module "k8s" {
 
   k8s_subnet_id = module.network.k8s_subnet_id
 
-  acr_id = module.container_registry.acr.id
+  acr = module.container_registry.acr
 }
 
 module "jumpbox" {

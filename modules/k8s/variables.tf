@@ -43,7 +43,6 @@ variable "k8s_subnet_id" {
   description = "The ID of the subnet to which the Kubernetes cluster will be connected."
 }
 
-variable "acr_id" {
-  type        = string
-  description = "The ID of the Azure Container Registry where Kubernetes will be able to pull images from."
+variable "acr" {
+  description = "The the Azure Container Registry where Kubernetes will be able to pull images from."
 }
