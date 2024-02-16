@@ -58,7 +58,7 @@ module "k8s" {
 
   k8s_subnet_id = module.network.k8s_subnet_id
 
-  acr = module.container_registry.acr
+  acr_id = module.container_registry.acr.id
 }
 
 module "jumpbox" {
