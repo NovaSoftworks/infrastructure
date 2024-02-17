@@ -13,22 +13,6 @@ variable "region_short" {
   description = "This is the cloud hosting region where the infrastructure will be deployed, but shortened."
 }
 
-variable "jumpbox_vm_size" {
-  type        = string
-  description = "Default VM size used for the Jumpbox."
-}
-
-variable "jumpbox_username" {
-  type        = string
-  description = "Jumpbox administrator username"
-}
-
-variable "jumpbox_password" {
-  type        = string
-  description = "Jumpbox administrator password"
-  sensitive   = true
-}
-
 variable "paas_sku_tier" {
   type        = string
   description = "Default SKU tier for the PaaS cluster management."
@@ -52,4 +36,9 @@ variable "paas_spot_vm_size" {
 variable "paas_spot_node_count" {
   type        = string
   description = "How many nodes to use for the PaaS' spot pool."
+}
+
+variable "paas_subnet_id" {
+  type        = string
+  description = "The ID of the subnet to which the PaaS cluster will be connected."
 }

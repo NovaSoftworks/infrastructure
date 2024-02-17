@@ -18,14 +18,6 @@ provider "azurerm" {
   features {}
 }
 
-module "container_registry" {
-  source = "../../modules/container_registry"
-
-  environment  = var.environment
-  region       = var.region
-  region_short = var.region_short
-}
-
 module "dns" {
   source = "../../modules/dns"
 
@@ -42,23 +34,21 @@ module "network" {
   region_short = var.region_short
 }
 
-module "k8s" {
-  source     = "../../modules/k8s"
+module "paas" {
+  source     = "../../modules/paas"
   depends_on = [module.network, module.container_registry]
 
   environment  = var.environment
   region       = var.region
   region_short = var.region_short
 
-  k8s_sku_tier          = var.k8s_sku_tier
-  k8s_system_vm_size    = var.k8s_system_vm_size
-  k8s_system_node_count = var.k8s_system_node_count
-  k8s_spot_vm_size      = var.k8s_spot_vm_size
-  k8s_spot_node_count   = var.k8s_spot_node_count
+  paas_sku_tier          = var.paas_sku_tier
+  paas_system_vm_size    = var.paas_system_vm_size
+  paas_system_node_count = var.paas_system_node_count
+  paas_spot_vm_size      = var.paas_spot_vm_size
+  paas_spot_node_count   = var.paas_spot_node_count
 
-  k8s_subnet_id = module.network.k8s_subnet_id
-
-  acr_id = module.container_registry.acr.id
+  paas_subnet_id = module.network.paas_subnet_id
 }
 
 module "jumpbox" {
