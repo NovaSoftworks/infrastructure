@@ -1,6 +1,6 @@
 locals {
   component            = "novacp-${var.environment}-${var.region_short}-paas"
-  orchestrator_version = "1.29.1"
+  orchestrator_version = "1.28"
 }
 
 resource "azurerm_resource_group" "paas_rg" {
