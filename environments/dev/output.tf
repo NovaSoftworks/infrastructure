@@ -8,7 +8,8 @@ output "dns_zone_novasoftworks_com" {
 }
 
 output "paas_k8s_host" {
-  value = local.kube_config.host
+  value     = local.kube_config.host
+  sensitive = true
 }
 
 output "paas_k8s_client_certificate" {
