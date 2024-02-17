@@ -36,7 +36,7 @@ module "network" {
 
 module "paas" {
   source     = "../../modules/paas"
-  depends_on = [module.network, module.container_registry]
+  depends_on = [module.network]
 
   environment  = var.environment
   region       = var.region
