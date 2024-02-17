@@ -18,6 +18,7 @@ resource "azurerm_kubernetes_cluster" "paas_k8s" {
   location            = azurerm_resource_group.paas_rg.location
   dns_prefix          = "dns-paas-${var.region_short}-${var.environment}-novacp"
   sku_tier            = var.paas_sku_tier
+  kubernetes_version  = local.orchestrator_version
 
   identity {
     type = "SystemAssigned"
