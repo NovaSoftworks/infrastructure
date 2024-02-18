@@ -50,7 +50,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "paas_spot_pool" {
   kubernetes_cluster_id = azurerm_kubernetes_cluster.paas_k8s.id
   priority              = "Spot"
   eviction_policy       = "Delete"
-  spot_max_price        = "8"
+  spot_max_price        = "9"
   node_labels = {
     "kubernetes.azure.com/scalesetpriority" = "spot"
   }
